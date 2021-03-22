@@ -43,6 +43,8 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'preservim/tagbar'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'puremourning/vimspector'
+Plugin 'Chiel92/vim-autoformat'
 " Plugin 'wookayin/vim-autoimport'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -146,10 +148,6 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -209,3 +207,8 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" =============================================================
+" vimspector settings
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+" autoformat settings
+nmap <S-A-f> :Autoformat<CR>
